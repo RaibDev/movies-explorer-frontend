@@ -1,0 +1,153 @@
+.about {
+  padding: 110px 70px;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.23;
+  font-weight: 400;
+}
+
+.about__info {
+  display: flex;
+  gap: 40px;
+}
+
+.about__box {
+  width: 50%;
+}
+
+.about__title {
+  margin: 70px 0 0;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -4%;
+  text-align: left;
+}
+
+.about__text {
+  margin: 26px 0 0;
+  font-size: 14px;
+  line-height: 1.43;
+  text-align: left;
+}
+
+.about__info {
+  display: flex;
+}
+
+.title::after {
+  margin-top: 23px;
+  content: '';
+  display: inline;
+  width: 100%;
+  border: #000 1px solid;
+  box-sizing: border-box;
+}
+
+.about__graph {
+  margin-top: 110px;
+  display: flex;
+  width: 100%;
+}
+
+.about__front {
+  width: 20%;
+}
+
+.about__back {
+  width: 80%;
+}
+
+.about__graph-elem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: 400;
+  background-color: #F2F2F2;
+  height: 36px;
+}
+
+.about__graph-elem_type_dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.about__education {
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: 500;
+  color: #A0A0A0;
+  text-align: center;
+  margin: 14px 0 0;
+}
+
+@media screen and (max-width: 800px) {
+  .about {
+    padding: 90px 50px;
+  }
+
+  .about__info {
+    gap: 30px;
+  }
+
+  .about__text {
+    margin-top: 22px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .about__graph {
+    margin-top: 93px;
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .about {
+    padding: 70px 18px;
+  }
+
+  .title::after {
+    margin-top: 28px;
+  }
+
+  .about__info {
+    margin-top: 60px;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .about__box {
+    width: 100%;
+  }
+
+  .about__title {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .about__text {
+    margin-top: 16px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .about__graph {
+    margin-top: 60px;
+  }
+
+  .about__education {
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 1.18;
+  }
+
+  .about__graph-elem {
+    height: 35px;
+    font-size: 11px;
+    line-height: 1.18;
+  }
+}
