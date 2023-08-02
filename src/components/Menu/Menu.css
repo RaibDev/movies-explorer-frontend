@@ -1,5 +1,5 @@
 .close-btn {
-  transform: rotate(45deg) scale(2, 2);
+  background-image: url(../../images/close.svg);
   background-color: #fff;
   background-size: cover;
   width: 22px;
@@ -9,8 +9,8 @@
   cursor: pointer;
   transition: opacity .5s;
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 14px;
+  right: 14px;
   z-index: 3;
 }
 
