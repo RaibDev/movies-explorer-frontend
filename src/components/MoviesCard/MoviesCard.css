@@ -1,0 +1,122 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #F9F9F9;
+  width: 100%;
+  height: 134px;
+  margin: auto;
+}
+
+.card__info {
+  padding: 22px 0 22px 22px;
+  box-sizing: border-box;
+}
+
+.card__title {
+  font-size: 18px;
+  line-height: 1.11;
+  font-weight: 500;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 400px;
+}
+
+.card__timing {
+  font-size: 11px;
+  line-height: 1.18;
+  text-align: left;
+  margin: 13px 0 0;
+}
+
+.button {
+  margin-top: 30px;
+  padding: 0;
+  float: left;
+  border: none;
+  background-size: contain;
+  background-color: #F9F9F9;
+  width: 14px;
+  height: 12px;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.card__delete-btn {
+  background-image: url(../../images/delete-min.svg);
+}
+
+.card__like-btn {
+  background-image: url(../../images/like.svg);
+}
+
+.button:hover {
+  opacity: .3;
+}
+
+.card__image {
+  width: 220px;
+  height: 122px;
+  margin: 6px 6px;
+}
+
+@media screen and (max-width: 700px) {
+  .card__title {
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .card__title {
+    max-width: 180px;
+  }
+
+  .card__info {
+    padding-left: 10px;
+  }
+
+  .card__image {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 492px) {
+  .card {
+    flex-direction: column-reverse;
+    height: max-content;
+    width: max-content;
+  }
+
+  .card__info {
+    padding: 14px 36px 12px 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .card__image {
+    width: 300px;
+    height: 168px;
+  }
+
+  .card__title {
+    font-size: 12px;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  .card__timing {
+    font-size: 11px;
+    line-height: 1.18;
+    margin-top: 8px;
+  }
+
+  .button {
+    margin: 0;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}
