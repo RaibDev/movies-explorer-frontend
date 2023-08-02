@@ -15,6 +15,7 @@
 .card__title {
   font-size: 18px;
   line-height: 1.11;
+  font-weight: 500;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -29,39 +30,28 @@
   margin: 13px 0 0;
 }
 
-.card__delete-btn {
+.button {
   margin-top: 30px;
   padding: 0;
   float: left;
   border: none;
-  background-image: url(../../images/delete-min.svg);
   background-size: contain;
   background-color: #F9F9F9;
   width: 14px;
   height: 12px;
-  transition: opacity .5s;
   cursor: pointer;
+  transition: opacity .5s;
+}
+
+.card__delete-btn {
+  background-image: url(../../images/delete-min.svg);
 }
 
 .card__like-btn {
-  margin-top: 30px;
-  padding: 0;
-  float: left;
-  border: none;
   background-image: url(../../images/like.svg);
-  background-size: contain;
-  background-color: #F9F9F9;
-  width: 14px;
-  height: 12px;
-  transition: opacity .5s;
-  cursor: pointer;
 }
 
-.card__like-btn:hover {
-  opacity: .3;
-}
-
-.card__delete-btn:hover {
+.button:hover {
   opacity: .3;
 }
 
@@ -123,17 +113,10 @@
     margin-top: 8px;
   }
 
-  .card__delete-btn {
+  .button {
     margin: 0;
     position: absolute;
     top: 16px;
-    right: 36px;
-  }
-
-  .card__like-btn {
-    margin: 0;
-    position: absolute;
-    top: 16px;
-    right: 36px;
+    right: 16px;
   }
 }

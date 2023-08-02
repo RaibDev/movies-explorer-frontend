@@ -5,11 +5,11 @@ import './Movies.css';
 
 const Movies = () => {
   return (
-    <>
+    <main>
       <SearchForm />
       <MoviesCardList />
       <button className='new-movies-btn' type='button'>Eщё</button>
-    </>
+    </main>
   );
 };
 

@@ -9,11 +9,11 @@ const SavedMovies = () => {
 
   const isDeleteBtn = location.pathname === '/saved-movies';
   return (
-    <>
+    <main>
       <SearchForm />
       <MoviesCardList />
       { isDeleteBtn && <div className='hidden-box'></div> }
-    </>
+    </main>
   );
 };
 

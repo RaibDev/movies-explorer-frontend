@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 66px;
+  gap: 49px;
 }
 
 .about-me__text {
@@ -92,7 +93,11 @@
 
 @media screen and (max-width: 535px) {
   .about-me__info {
-    gap: 5px;
+    gap: 15px;
+  }
+    .about-me__img {
+    width: 235px;
+    height: 290px;
   }
 }
 

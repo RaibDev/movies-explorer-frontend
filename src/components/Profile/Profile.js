@@ -4,7 +4,7 @@ import './Profile.css';
 
 const Profile = () => {
   return (
-    <section className='profile' aria-label='Редактирование профиля'>
+    <main className='profile' aria-label='Редактирование профиля'>
       <h3 className='profile__title'>Привет, Виталий!</h3>
       <form className='profile-form'>
         <div className='profile-form__box'>
@@ -18,7 +18,7 @@ const Profile = () => {
         <button className='profile-form__submit' type='submit'>Редактировать</button>
       </form>
       <Link className='profile__link' to='/signin'>Выйти из аккаунта</Link>
-    </section>
+    </main>
   );
 };
 

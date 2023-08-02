@@ -1,10 +1,8 @@
 .about {
   padding: 110px 70px;
   box-sizing: border-box;
-  font-weight: 400;
   font-size: 22px;
   line-height: 1.23;
-  font-weight: 400;
 }
 
 .about__info {
@@ -20,6 +18,7 @@
   margin: 70px 0 0;
   font-size: 20px;
   line-height: 1.2;
+  font-weight: 400;
   letter-spacing: -4%;
   text-align: left;
 }
@@ -28,6 +27,7 @@
   margin: 26px 0 0;
   font-size: 14px;
   line-height: 1.43;
+  font-weight: 400;
   text-align: left;
 }
 
@@ -101,6 +101,10 @@
 
   .about__graph {
     margin-top: 93px;
+  }
+
+  .about__education {
+    font-weight: 400;
   }
 }
 

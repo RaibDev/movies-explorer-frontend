@@ -26,7 +26,7 @@ const Header = () => {
           <Link className='nav-link nav-link_type_first' to='/movies'>Фильмы</Link>
           <Link className='nav-link' to='/saved-movies'>Сохранённые фильмы</Link>
         </nav>
-        <Link className='nav-link' to='/profile'>Аккаунт</Link>
+        <Link className='nav-link nav-link_type_back' to='/profile'>Аккаунт</Link>
         <button className='burger' type='button' onClick={ handleMenuClick }></button>
       </section>
       <Menu isOpen={ isMenuOpen } onClose={ closeMenu } />

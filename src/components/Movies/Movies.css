@@ -11,6 +11,7 @@
   box-sizing: border-box;
   transition: opacity .5s;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .new-movies-btn:hover {

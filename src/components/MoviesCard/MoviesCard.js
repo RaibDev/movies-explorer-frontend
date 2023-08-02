@@ -13,8 +13,8 @@ const MoviesCard = ({ name, timing, link }) => {
       <div className='card__info'>
         <h3 className='card__title'>{ name }</h3>
         <p className='card__timing'>{ timing }</p>
-        { isLikeBtn && <button type='button' className='card__like-btn'></button> }
-        { isDeleteBtn && <button className='card__delete-btn' type='button'></button> }
+        { isLikeBtn && <button type='button' className='button card__like-btn'></button> }
+        { isDeleteBtn && <button className='button card__delete-btn' type='button'></button> }
       </div>
       <img className='card__image' src={ link } alt='Промо фильма'/>
     </li>

@@ -11,7 +11,7 @@ const Menu = ({ isOpen, onClose }) => {
         <li className='menu__link'><Link className='menu__link-el' to='/'>Главная</Link></li>
         <li className='menu__link'><Link className='menu__link-el' to='/movies'>Фильмы</Link></li>
         <li className='menu__link'><Link className='menu__link-el' to='/saved-movies'>Сохранённые фильмы</Link></li>
-        <li className='menu__link'><Link className='menu__link-el' to='/profile'>Аккаунт</Link></li>
+        <li className='menu__link'><Link className='menu__link-el menu__link-el_type_back' to='/profile'>Аккаунт</Link></li>
       </ul>
       <button className='close-btn' type='button' onClick={ onClose }>+</button>
     </nav>

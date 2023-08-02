@@ -55,6 +55,16 @@
   box-sizing: border-box;
 }
 
+.menu__link-el_type_back {
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  width: 100px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu__link-el {
   text-decoration: none;
   color: #000;
@@ -73,20 +83,8 @@
 }
 
 .menu__link:last-of-type {
-  margin-top: 531px;
+  margin: 385px auto 0;
 }
-
-/* .menu::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  opacity: .3;
-  z-index: 2;
-} */
 
 .menu__links {
   list-style: none;

@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <section className='footer'>
+    <footer className='footer'>
       <p className='footer__text'>Учебный проект Яндекс.Практикум х BeatFilm.</p>
       <div className='footer__copyright'>
         <p className='footer__year'>&copy; {new Date().getFullYear()}</p>
@@ -12,7 +12,7 @@ const Footer = () => {
           <Link className='footer__link' rel="noreferrer" to='https://github.com/RaibDev' target='_blank'>Github</Link>
         </div>
       </div>
-    </section>
+    </footer>
   );
 } ;
 

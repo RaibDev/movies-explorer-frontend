@@ -1,5 +1,5 @@
 .header {
-  padding: 18px 52px 18px 70px;
+  padding: 18px 62px 18px 70px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -15,6 +15,16 @@
   color: #000;
   cursor: pointer;
   transition: opacity .5s;
+}
+
+.nav-link_type_back {
+  background-color: #F9F9F9;
+  border-radius: 20px;
+  width: 100px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-link:hover {
@@ -56,6 +66,12 @@
 
   .burger:hover {
     opacity: .3;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .header {
+    padding-right: 52px;
   }
 }
 

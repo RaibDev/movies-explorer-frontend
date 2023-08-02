@@ -9,14 +9,15 @@ import Portfolio from '../Portfolio/Portfolio';
 
 const Main = () => {
   return (
-    // <Promo />
     <>
       <NavTab />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
+      <main>
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+      </main>
     </>
   );
 }
