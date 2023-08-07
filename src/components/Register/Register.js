@@ -59,11 +59,13 @@ const Register = ({ loggedIn, onRegister, responceError }) => {
           id='user-password' 
           type='password' 
           name='password' 
+          onChange={ handleChange }
+          value={ values.password || '' }
           minLength='2'
           required
         />
         <span className='form__error'></span>
-        <button className='form__submit form__submit_type_register' type='submit' disabled={ !isValid }>Зарегистрироваться</button>
+        <button className='form__submit form__submit_type_register' type='submit' /*disabled={ !isValid }*/>Зарегистрироваться</button>
         <p className='form__text'>Уже зарегистрированы? <Link className='form__link' to='/signin'>Войти</Link></p>
       </form>
     </main>

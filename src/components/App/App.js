@@ -49,10 +49,11 @@ function App() {
   });
 
   const handleRegisterUser = (regData) => { // Регистрация пользователя
-    auth.registerData(regData.name, regData.email, regData.password)
+    auth.registrateUser(regData.name, regData.email, regData.password)
       .then(data => {
         if(data) {
-          navigate('/signin');
+          // navigate('/signin');
+          console.log(data);
         }
       })
       .catch(err => {
@@ -166,7 +167,7 @@ function App() {
 
   useEffect(() => {
     handleCheckToken();
-  }, [loggedIn]);
+  }, []);
 
   useEffect(() => {
     loggedIn && localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
@@ -179,11 +180,11 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/signup' element={
-            <Register loggedIn={ loggedIn } onRegister={ handleLogin } responceError={ serverResponceError } />
+            <Register loggedIn={ loggedIn } onRegister={ handleRegisterUser } responceError={ serverResponceError } />
             } 
           />
           <Route path='/signin' element={
-            <Login loggedIn={ loggedIn } onLogin={ handleRegisterUser } responceError={ serverResponceError } />
+            <Login loggedIn={ loggedIn } onLogin={ handleLogin } responceError={ serverResponceError } />
             } 
           />
           <Route path='/profile' element={

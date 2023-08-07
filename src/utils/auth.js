@@ -16,12 +16,12 @@ class Auth {
     }
   }
 
-  checkToken(jwt) {
-    return fetch(`${ this._url }`, {
+  checkToken(token) {
+    return fetch(`${ this._url }/users/me`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
-        "authorization": `Bearer ${ jwt }`,
+        "authorization": `Bearer ${ token }`,
       },
     })
       .then(responce => this._checkResponce(responce));
@@ -47,11 +47,7 @@ class Auth {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
-      }),
+      body: JSON.stringify({ name, email, password }),
     })
     .then(responce => this._checkResponce(responce));
   }
