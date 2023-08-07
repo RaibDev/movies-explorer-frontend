@@ -4,6 +4,15 @@ import svoistva from '../images/33_svoistva.png';
 import kinoalmanah from '../images/100_let_disaina.png';
 import vPogone from '../images/v_pogone_za_benksi.png';
 
+export const BACKEND_URL = 'http://raibdev.nomoredomains.rocks';
+export const BEATFILM_URL = 'https://api.nomoreparties.co';
+export const BEATFILM_MOVIES_URL =
+  'https://api.nomoreparties.co/beatfilm-movies';
+
+// export const USER_NAME_REGEX = /^[a-zA-Zа-яА-Я\sё-]+$/;
+// export const USER_EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+
 export const userData = {
   name: 'Виталий',
   prof: 'Фронтенд-разработчик, 30 лет',
