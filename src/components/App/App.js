@@ -51,13 +51,12 @@ function App() {
   const handleRegisterUser = (regData) => { // Регистрация пользователя
     auth.registrateUser(regData.name, regData.email, regData.password)
       .then(data => {
-        if(data) {
-          // navigate('/signin');
-          console.log(data);
-        }
+        console.log(data);
+        handleLogin(regData);
       })
       .catch(err => {
         console.log(err);
+        setIsCompleted(false);
         setServerResponceError(err);
       })
   };
@@ -167,7 +166,7 @@ function App() {
 
   useEffect(() => {
     handleCheckToken();
-  }, []);
+  }, [loggedIn]);
 
   useEffect(() => {
     loggedIn && localStorage.setItem('savedMovies', JSON.stringify(savedMovies));

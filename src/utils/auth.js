@@ -6,7 +6,7 @@ class Auth {
     this._headers = headers;
   }
 
-  _checkResponce(responce) {
+  _checkResponce = (responce) => {
     if(responce) {
       if(responce.ok) {
         return responce.json();
@@ -16,7 +16,7 @@ class Auth {
     }
   }
 
-  checkToken(token) {
+  checkToken = (token) => {
     return fetch(`${ this._url }/users/me`, {
       method: 'GET',
       headers: {
@@ -24,24 +24,25 @@ class Auth {
         "authorization": `Bearer ${ token }`,
       },
     })
-      .then(responce => this._checkResponce(responce));
+      .then(responce => {
+        return this._checkResponce(responce);
+      });
   }
 
-  login(email, password) {
+  login = (email, password) => {
     return fetch(`${ this._url }/signin`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: email,
-        password: password,
-      }),
+      body: JSON.stringify({ email, password }),
     })
-    .then(responce => this._checkResponce(responce));
+    .then(responce => {
+      return this._checkResponce(responce);
+    });
   }
 
-  registrateUser(name, email, password) {
+  registrateUser = (name, email, password) => {
     return fetch(`${ this._url }/signup`, {
       method: 'POST',
       headers: {
@@ -49,12 +50,14 @@ class Auth {
       },
       body: JSON.stringify({ name, email, password }),
     })
-    .then(responce => this._checkResponce(responce));
+    .then(responce => {
+      return this._checkResponce(responce);
+    });
   }
 };
 
 export const auth = new Auth({
-  url: 'http://raibdev.nomoredomains.rocks',
+  url: 'https://raibdev.nomoredomains.rocks',
   headers: {
     'Content-Type': 'application/json',
   },

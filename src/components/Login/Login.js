@@ -41,7 +41,7 @@ const Login = ({ loggedIn, onLogin, responceError }) => {
           required
         />
         <span className='form__error'></span>
-        <button className='form__submit form__submit_type_login' type='submit' disabled={ !isValid }>Войти</button>
+        <button className='form__submit form__submit_type_login' type='submit' /*disabled={ !isValid }*/>Войти</button>
         <p className='form__text'>Ещё не зарегистрированы? <Link className='form__link' to='/signup'>Регистрация</Link></p>
       </form>
     </main>
