@@ -2,4 +2,4 @@
 
 ## Ссылка на макет - https://disk.yandex.ru/d/PzrRU8vBHrn1Og
 
-### Ссылка на фронтенд raibdev-front.nomoreparties.co
+### Ссылка на фронтенд - https://raibdev-front.nomoreparties.co
