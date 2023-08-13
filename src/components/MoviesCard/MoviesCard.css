@@ -51,6 +51,10 @@
   background-image: url(../../images/like.svg);
 }
 
+.card__like-btn_type_liked {
+  background-image: url(../../images/like-active.svg);
+}
+
 .button:hover {
   opacity: .3;
 }

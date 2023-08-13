@@ -7,12 +7,12 @@ const MoviesCardList = ({
   savedMovies, 
   renderedFilm, 
   setCountAddedFilm, 
-  movie
+  movies
 }) => {
 
   return (
     <ul className='card-list'>
-      { renderedFilm ? (renderedFilm.map(movie => {
+           { movies.map(movie => {
         return (
           <MoviesCard 
             movie={ movie }
@@ -24,22 +24,53 @@ const MoviesCardList = ({
             setCountAddedFilm={ setCountAddedFilm }
           />
         );
-      }) ) : (
+       }
+      )}
+      {/* { renderedFilm.map(movie => {
+        return (
+          <MoviesCard 
+            movie={ movie }
+            savedMovies={ savedMovies }
+            onLike={ onLike }
+            onDelete={ onDelete }
+            key={ movie.movieId || movie.id }
+            renderedFilm={ renderedFilm }
+            setCountAddedFilm={ setCountAddedFilm }
+          />
+        );
+       }
+      )} */}
+      {/* { renderedFilm ? (renderedFilm.map(movie => {
+        console.log(movie);
+        return (
+          <MoviesCard 
+            movie={ movie }
+            savedMovies={ savedMovies }
+            onLike={ onLike }
+            onDelete={ onDelete }
+            key={ movie.movieId || movie._id }
+            renderedFilm={ renderedFilm }
+            setCountAddedFilm={ setCountAddedFilm }
+          />
+        );
+      }) 
+      ) : (
         movie.map(movie => {
+        console.log(movie);
           return (
             <MoviesCard 
               movie={ movie }
               savedMovies={ savedMovies }
               onLike={ onLike }
               onDelete={ onDelete }
-              key={ movie.movieId || movie.id }
+              key={ movie.movieId || movie._id }
               renderedFilm={ renderedFilm }
               setCountAddedFilm={ setCountAddedFilm }
             />
           );
         }) 
       )
-      }
+      } */}
     </ul>
   );
 };

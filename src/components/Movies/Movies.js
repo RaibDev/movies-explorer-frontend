@@ -22,9 +22,9 @@ const Movies = ({ onLike, onDelete, savedMovies, apiErrors, movies, onRequest })
   const [isLoading, setIsLoading] = useState(false);
 
   const renderedFilm = useMemo(() => { // Рендер фильмов
-    const renderCounter = (size.width < 768) ? 5 : ((size.width < 1280) ? 8 : 12);
+    const renderCounter = (size.width < 768) ? 5 : ((size.width < 1280) ? 5 : 7);
 
-    return movies.slice(0, renderCounter + countAddedFilm);
+    return sortedMovies.slice(0, renderCounter + countAddedFilm);
   }, [size, movies, countAddedFilm]);
 
   const handleAddFilm = () => { // логика кнопки добавления фильма
@@ -59,11 +59,6 @@ const Movies = ({ onLike, onDelete, savedMovies, apiErrors, movies, onRequest })
     setSearchRequest({});
     setSortedMovies(savedMovies);
   };
-
-    const handleGetMovies = () => {
-    // setIsLoadingMovies(true);
-      setIsChecked(true);
-    };
 
   // const handleGetMovies = () => {
   //   moviesApi.getAllMovies().then((movies) => {
@@ -103,7 +98,7 @@ const Movies = ({ onLike, onDelete, savedMovies, apiErrors, movies, onRequest })
         apiErrors={ apiErrors }
         // onRequest={ handleGetMovies }
       />
-      { isLoading ? <Preloader /> : (sortedMovies.length ? 
+      { isLoading ? <Preloader /> : (renderedFilm.length ? 
         (<MoviesCardList 
           movies={ sortedMovies } 
           renderedFilm={ renderedFilm } 
