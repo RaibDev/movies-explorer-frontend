@@ -60,7 +60,7 @@ const SavedMovies = ({ savedMovies, onDelete }) => {
     <main>
       <SearchForm onClear={ handleClearInput } onFilter={ handleSortedMovies } searchRequest={ searchRequest }/>
       { sortedMovies.length ? 
-        (<MoviesCardList movies={ sortedMovies } onDelete={ onDelete }/>) : 
+        (<MoviesCardList movie={ sortedMovies } onDelete={ onDelete }/>) : 
         (<p className='movies__not-found'>По вашему запросу ничего не найдено</p>) }
       <div className='hidden-box'></div>
     </main>
