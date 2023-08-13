@@ -58,7 +58,6 @@ const Profile = ({ loggedIn, onUpdate, onExit, apiErrors, isCompleted }) => {
             id='name-input' 
             name='name'
             type='text'
-            pattern='[a-zA-Zа-яА-Я -]{1,}'
             onChange={ handleChange }
             value={ values.name || '' }
             placeholder='Введите имя'
@@ -79,7 +78,6 @@ const Profile = ({ loggedIn, onUpdate, onExit, apiErrors, isCompleted }) => {
             value={ values.email || '' }
             placeholder='Введите почту'
             type='email'
-            pattern='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$'
             name='email'
             minLength='4'
             maxLength='40'
