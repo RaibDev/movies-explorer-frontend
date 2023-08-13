@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.header_type_loggedIn {
+  background-color: #F3C1F8;
+}
+
 .burger {
   display: none;
 }
@@ -25,6 +29,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.nav-link_type_loggedIn {
+  background-color: #F3C1F8;
 }
 
 .nav-link:hover {
@@ -62,6 +70,10 @@
     height: 44px;
     border: none;
     background-color: #fff;
+  }
+
+  .burger_type_loggedIn {
+    background-color: #F3C1F8;
   }
 
   .burger:hover {

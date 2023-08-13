@@ -242,7 +242,7 @@ function App() {
         <CurrentUserContext.Provider value={{ currentUser }}>
           { headerPaths.includes(location.pathname) ? <Header /> : '' }
           <Routes>
-            <Route path='/' element={<Main />} />
+            <Route path='/' element={<Main loggedIn={ loggedIn } />} />
             <Route path='/signup' element={
               <Register 
                 loggedIn={ loggedIn } 
