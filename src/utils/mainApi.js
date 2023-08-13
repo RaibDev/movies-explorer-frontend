@@ -1,9 +1,8 @@
-import { BEATFILM_URL } from "./constants";
+// import { BEATFILM_URL } from "./constants";
 
 export class MainApi {
-  constructor({ url, headers }) {
+  constructor({ url }) {
     this._url = url;
-    this._headers = headers;
   }
 
   _checkResponce(responce) {
@@ -19,7 +18,10 @@ export class MainApi {
   getUserData() {  // Получение данных пользователя
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
-      headers: this._headers,
+      headers: {
+        "Content-Type": 'application/json',
+        "authorization": `Bearer ${localStorage.getItem('jwt')}`,
+      },
     })
     .then(responce => this._checkResponce(responce));
   }
@@ -27,7 +29,10 @@ export class MainApi {
   getSavedMovies() {  // Получение сохраненных фильмов
     return fetch(`${ this._url }/movies`, {
       method: 'GET',
-      headers: this._headers,
+      headers: {
+        "Content-Type": 'application/json',
+        "authorization": `Bearer ${localStorage.getItem('jwt')}`,
+      },
     })
     .then(responce => this._checkResponce(responce));
   }
@@ -35,7 +40,10 @@ export class MainApi {
   deleteMovie(idMovie) {  // Удаление фильма из соохраненных
     return fetch(`${ this._url }/movies/${ idMovie }`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        "Content-Type": 'application/json',
+        "authorization": `Bearer ${localStorage.getItem('jwt')}`,
+      },
     })
     .then(responce => this._checkResponce(responce));
   }
@@ -43,7 +51,10 @@ export class MainApi {
   updateUserData(data) {  // Обновление данных пользователя
     return fetch(`${ this._url }/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        "Content-Type": 'application/json',
+        "authorization": `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify({
         name: data.name,
         email: data.email,
@@ -55,18 +66,21 @@ export class MainApi {
   likeSavedMovies(data) {  //  Лайк карточки и добавление в сохраненные
     return fetch(`${ this._url }/movies`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        "Content-Type": 'application/json',
+        "authorization": `Bearer ${localStorage.getItem('jwt')}`,
+      },
       body: JSON.stringify({
         nameRU: data.nameRU,
-        nameEn: data.nameEn,
+        nameEN: data.nameEN,
         trailerLink: data.trailerLink,
         country: data.country,
         director: data.director,
         duration: data.duration,
         year: data.year,
         description: data.description,
-        image: BEATFILM_URL + data.image.url,
-        thumbnail: BEATFILM_URL + data.image.formats.thumbnail.url,
+        image: `https://api.nomoreparties.co/${data.image.url}`,
+        thumbnail: `https://api.nomoreparties.co/${data.image.formats.thumbnail.url}`,
         movieId: data.id,
         owner: data.user,
       }),

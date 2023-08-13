@@ -6,7 +6,7 @@ import Logo from '../Logo/Logo';
 import useFormValidation from '../../hooks/useFormValidation.js';
 import { validateName, validateEmail } from '../../utils/validation.js';
 
-const Register = ({ loggedIn, onRegister, responceError }) => {
+const Register = ({ loggedIn, onRegister, apiErrors }) => {
 
   const navigate = useNavigate();
   const { values, handleChange, errors, isValid } = useFormValidation();
@@ -35,6 +35,9 @@ const Register = ({ loggedIn, onRegister, responceError }) => {
           name='name' 
           onChange={ handleChange }
           value={ values.name || '' }
+          type= 'text'
+          // pattern='[a-zA-Zа-яА-Я -]{1,}'
+          placeholder='Введите имя'
           minLength='2'
           maxLength='30'
           required
@@ -45,9 +48,11 @@ const Register = ({ loggedIn, onRegister, responceError }) => {
           className='form__input' 
           id='user-email' 
           type='email' 
+          // pattern='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$'
           name='email' 
           onChange={ handleChange }
           value={ values.email || '' }
+          placeholder='Введите почту'
           minLength='4'
           maxLength='40'
           required
@@ -61,11 +66,23 @@ const Register = ({ loggedIn, onRegister, responceError }) => {
           name='password' 
           onChange={ handleChange }
           value={ values.password || '' }
+          placeholder='Введите пароль'
           minLength='2'
           required
         />
-        <span className='form__error'></span>
-        <button className='form__submit form__submit_type_register' type='submit' /*disabled={ !isValid }*/>Зарегистрироваться</button>
+        <span className='form__error'>{ errors.password }</span>
+        <span className="form__api-error">
+            {apiErrors.register.message === 'Failed to fetch'
+              ? 'При регистрации пользователя произошла ошибка.'
+              : apiErrors.register.errorText}
+          </span>
+        <button 
+          className='form__submit form__submit_type_register' 
+          type='submit' 
+          disabled={ !isValid || validateName(values.name).invalid || validateEmail(values.email).invalid }
+          >
+            Зарегистрироваться
+          </button>
         <p className='form__text'>Уже зарегистрированы? <Link className='form__link' to='/signin'>Войти</Link></p>
       </form>
     </main>

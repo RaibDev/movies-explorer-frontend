@@ -31,12 +31,13 @@
 }
 
 .profile-form__label {
-  width: max-content;
+  width: 50%;
+  text-align: left;
 
 }
 
 .profile-form__input {
-  width: max-content;
+  width: 50%;
   border: none;
   text-align: right;
   padding: 0;
@@ -70,15 +71,16 @@
 }
 
 .profile__link {
-  display: block;
-  padding-top: 16px;
+  border: none;
+  background-color: #fff;
+  padding: 16px 0 0;
   text-decoration: none;
   color: #FF4062;
   font-size: 13px;
   line-height: 1.23;
   transition: opacity .5s;
   font-style: medium;
-  margin-bottom: 70px;
+  margin: auto;
 }
 
 .profile__link:hover {

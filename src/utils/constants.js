@@ -4,7 +4,7 @@ import svoistva from '../images/33_svoistva.png';
 import kinoalmanah from '../images/100_let_disaina.png';
 import vPogone from '../images/v_pogone_za_benksi.png';
 
-export const BACKEND_URL = 'http://raibdev.nomoredomains.rocks';
+export const BACKEND_URL = 'https://raibdev.nomoredomains.rocks';
 export const BEATFILM_URL = 'https://api.nomoreparties.co';
 export const BEATFILM_MOVIES_URL =
   'https://api.nomoreparties.co/beatfilm-movies';
