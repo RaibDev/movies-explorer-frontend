@@ -1,5 +1,4 @@
-const USER_NAME_REGEX = /^[a-zA-Zа-яА-Я\sё-]+$/;
-const USER_EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+import { USER_EMAIL_REGEX, USER_NAME_REGEX, USER_SEARCH_REGEX } from "./constants";
 
 export function validateName(name) {
   if (name !== undefined) {
@@ -17,7 +16,7 @@ export function validateName(name) {
   } else {
     return { invalid: true, message: '' };
   }
-}
+};
 
 export function validateEmail(email) {
   if (email !== undefined) {
@@ -31,4 +30,22 @@ export function validateEmail(email) {
   } else {
     return { invalid: true, message: '' };
   }
-}
+};
+
+export function validateSearch(search) {
+  if (search !== undefined) {
+    if (search.length === 0) {
+      return { invalid: true, message: 'Нужно ввести ключевое слово' };
+    } else if (!USER_SEARCH_REGEX.test(search.toLowerCase())) {
+      return {
+        invalid: true,
+        message:
+          'В поле можно использовать только кириллицу, латиницу, пробелы',
+      };
+    } else if (USER_SEARCH_REGEX.test(search.toLowerCase())) {
+      return { invalid: false, message: '' };
+    }
+  } else {
+    return { invalid: true, message: '' };
+  }
+};

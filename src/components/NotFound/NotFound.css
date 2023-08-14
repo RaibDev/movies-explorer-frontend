@@ -36,7 +36,9 @@
   text-decoration: none;
   color: #000;
   transition: opacity .5s;
-
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
 }
 
 .not-found-page__btn:hover {

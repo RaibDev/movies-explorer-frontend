@@ -71,6 +71,20 @@
   line-height: 1.21;
   padding: 0;
   border: none;
+  cursor: pointer;
+  transition: opacity .5s;
+}
+
+.form__submit_disabled {
+  background-color: #A0A0A0;
+}
+
+.form__submit_disabled:hover {
+  opacity: 1;
+}
+
+.form__submit_type_hover:hover {
+  opacity: .3;
 }
 
 .form__submit_type_register {

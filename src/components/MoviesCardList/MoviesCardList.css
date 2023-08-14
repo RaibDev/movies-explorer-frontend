@@ -19,6 +19,26 @@
   top: -80px;
 }
 
+.new-movies-btn {
+  width: 320px;
+  height: 36px;
+  background-color: #fff;
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 500;
+  margin: 50px auto 80px;
+  padding: 0;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box;
+  transition: opacity .5s;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.new-movies-btn:hover {
+  opacity: .3;
+}
+
 @media screen and (max-width: 800px) {
   .card-list {
     margin-top: 60px;
@@ -34,5 +54,9 @@
 
   .card-list::before {
     top: -50px;
+  }
+
+  .new-movies-btn {
+    width: 240px;
   }
 }

@@ -62,7 +62,7 @@ const Login = ({ loggedIn, onLogin, apiErrors }) => {
               : apiErrors.login.errorText }
           </span>
         <button 
-          className='form__submit form__submit_type_login' 
+          className={`form__submit form__submit_type_login ${ isValid ? 'form__submit_type_hover' : 'form__submit_disabled' }`}
           type='submit' 
           disabled={ !isValid || validateEmail(values.email).invalid }
         >

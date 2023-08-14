@@ -36,7 +36,6 @@ const Register = ({ loggedIn, onRegister, apiErrors }) => {
           onChange={ handleChange }
           value={ values.name || '' }
           type= 'text'
-          // pattern='[a-zA-Zа-яА-Я -]{1,}'
           placeholder='Введите имя'
           minLength='2'
           maxLength='30'
@@ -48,7 +47,6 @@ const Register = ({ loggedIn, onRegister, apiErrors }) => {
           className='form__input' 
           id='user-email' 
           type='email' 
-          // pattern='^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$'
           name='email' 
           onChange={ handleChange }
           value={ values.email || '' }
@@ -77,7 +75,7 @@ const Register = ({ loggedIn, onRegister, apiErrors }) => {
               : apiErrors.register.errorText}
           </span>
         <button 
-          className='form__submit form__submit_type_register' 
+          className={ `form__submit form__submit_type_register ${ isValid ? 'form__submit_type_hover' : 'form__submit_disabled' }` }
           type='submit' 
           disabled={ !isValid || validateName(values.name).invalid || validateEmail(values.email).invalid }
           >

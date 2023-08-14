@@ -1,19 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 
-const useResize = () => {
-  const [size, setSize] = useState({ width: 0, height: 0 });
+function useResize() {
+    const getDeviceWidth = useCallback(() => window.innerWidth, []);
+    const [deviceWidth, setDeviceWidth] = useState(getDeviceWidth());
 
-  useEffect(() => {
-    const getSize = () =>
-      setSize({ width: window.innerWidth, height: window.innerHeight });
+    useEffect(() => {
 
-    getSize();
+        function handleScreenResize() {
+            setDeviceWidth(getDeviceWidth());
+        };
 
-    window.addEventListener('resize', getSize);
-    return () => window.removeEventListener('resize', getSize);
-  }, []);
+        window.addEventListener('resize', resizeController, false); 
 
-  return size;
-};
+        let resizeTimer;
+
+        function resizeController() {
+            if (!resizeTimer) {
+                resizeTimer = setTimeout(() => {
+                    resizeTimer = null;
+                    handleScreenResize();
+                }, 1000); 
+            }
+        };
+
+        return () => window.removeEventListener('resize', handleScreenResize); 
+    }, [getDeviceWidth]);
+
+    return deviceWidth;
+}
 
 export default useResize;

@@ -1,4 +1,4 @@
-// import { BACKEND_URL } from "./constants";
+import { BACKEND_URL } from "./constants";
 
 class Auth {
   constructor({ url, headers }) {
@@ -57,7 +57,7 @@ class Auth {
 };
 
 export const auth = new Auth({
-  url: 'https://raibdev.nomoredomains.rocks',
+  url: BACKEND_URL,
   headers: {
     'Content-Type': 'application/json',
   },

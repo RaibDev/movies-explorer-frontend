@@ -1,68 +1,63 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import searchIcon from '../../images/find.svg'
+import useFormValidation from '../../hooks/useFormValidation';
+import { validateName, validateSearch } from '../../utils/validation.js';
 
-const SearchForm = ({ apiErrors, onFilter, onReset, searchRequest, onRequest }) => {
-  const [searchText, setSearchText] = useState('');
-  const isChoosed = JSON.parse(localStorage.getItem('checkboxState'));
-  const [isShort, setIsShort] = useState(isChoosed);
-  const [err, setErr] = useState('');
+const SearchForm = ({ onSubmit, showShortFilms, shortMovies }) => {
+  const location = useLocation();
+  const { values, handleChange, isValid, errors } = useFormValidation();
 
-  const handleChange = (evt) => {
-    setSearchText(evt.target.value);
-  };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-
-    if(searchText) {
-      onFilter({ isShort, searchText });
-    } else {
-      setErr('Введите ключевое слово для поиска');
-    }
-  };
-
-  const checkFilter = () => {
-    if(searchText === '') {
-      onFilter({ 
-        searchText: searchRequest.searchText,
-        isShort: !isShort,
-       });
-       setIsShort(!isShort);
-    } else {
-      onFilter({ 
-        searchText: searchText,
-        isShort: !isShort,
-       });
-       setIsShort(!isShort);
-    }
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      if (typeof values.search !== 'undefined' && values.search !== '') {
+          if (values.search.trim() !== '') {
+              onSubmit(values.search, false)
+          } else {
+              localStorage.removeItem(`movieSearch`);
+              onSubmit(values.search, true)
+          }
+      } else {
+          localStorage.removeItem(`movieSearch`);
+          onSubmit(values.search, true);
+      }
   };
 
   useEffect(() => {
-    if(searchRequest.searchText) {
-      setSearchText(searchRequest.searchText);
-    }
-  }, [searchRequest.searchText]);
+      if (location.pathname === '/movies' && localStorage.getItem(`movieSearch`)) {
+          const searchValues = localStorage.getItem(`movieSearch`);
+          values.search = searchValues;
+      }
+  }, [location.pathname]);
 
   return (
     <section className='search' aria-label='Поиск'>
-      <form className='search__form' onSubmit={ handleSubmit }>
+      <form className='search__form' onSubmit={ handleSubmit } noValidate >
         <input 
           className='search__input' 
           placeholder='Фильм' 
           name='search' 
           min='1'
+          value={ values.search || '' }
           onChange={ handleChange }
           required
         />
-        <button className='search__submit' type='submit'>
+        { <span className='form__error form__error_type_search'>{ validateSearch(values.search).message }</span> }
+        <button 
+          className={ `search__submit ${ isValid ? 'search__submit_type_hover' : 'search__submit_disabled' }` } 
+          type='submit' 
+          // disabled={ !isValid }
+        >
           <img className='search__submit-icon' alt='Кнопка поиска' src={ searchIcon }/>
         </button>
-        { <span className='form__api-error'>{ !searchText && err }</span>  }
       </form>
-      <FilterCheckbox onChange={ checkFilter } isChoosed={ searchRequest.isShort } />
+      <FilterCheckbox 
+        onChange={ () => showShortFilms(values.search) } 
+        isChoosed={ shortMovies ? true : false } 
+      />
     </section>
   );
 };

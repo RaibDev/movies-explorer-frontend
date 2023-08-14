@@ -10,9 +10,9 @@ const MoviesCard = ({ movie, savedMovies, onLike, onDelete }) => {
   const isLikeBtn = location.pathname === '/movies';
   const isDeleteBtn = location.pathname === '/saved-movies';
 
-  const savedMovie = savedMovies ? (savedMovies.find(el => el.movieId === movie._id)) : '';
+  const savedMovie = savedMovies ? (savedMovies.find(el => el.movieId === movie.id)) : '';
   const imageLink = movie.image.url ? `${ BEATFILM_URL }${ movie.image.url }` : movie.image;
-  const isLiked = savedMovies ? savedMovies.some(el => el.movieId === movie._id) : false;
+  const isLiked = savedMovies ? savedMovies.some(el => el.movieId === movie.id) : false;
   return (
     <li className='card'>
       <div className='card__info'>
@@ -21,7 +21,7 @@ const MoviesCard = ({ movie, savedMovies, onLike, onDelete }) => {
         { isLikeBtn && 
           <button 
             type='button' 
-            className={`button card__like-btn ${ isLiked ? 'button card__like-btn_type_liked' : '' }`}
+            className={`button ${ isLiked ? 'card__like-btn_type_liked' : 'button card__like-btn' }`}
             onClick={ () => onLike(movie, isLiked, savedMovie?._id) }
           ></button> }
         { isDeleteBtn && 
