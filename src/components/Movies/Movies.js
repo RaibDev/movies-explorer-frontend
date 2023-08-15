@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import SearchForm from '../SearchForm/SearchForm';
@@ -14,6 +14,7 @@ const Movies = ({
   savedMovies, 
 }) => {
   const navigate = useNavigate();
+  let location = useLocation();
 
   const [err, setErr] = useState(false);
   const [initialMovies, setInitialMovies] = useState([]);
@@ -125,7 +126,7 @@ const Movies = ({
     // setSortedMovies(sortedMovies)
     // handleSetSortedMovies(isAllMovies, inputValue, shortMovies);
     setSortedMovies(filterShorts(sortedMovies));
-  }, [navigate]);
+  }, [location.pathname]);
 
   return (
     <main>

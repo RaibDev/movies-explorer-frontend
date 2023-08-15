@@ -50,9 +50,9 @@ const SearchForm = ({ onSubmit, showShortFilms, shortMovies }) => {
           onChange={ handleChange }
           required
         />
-        { <span className='form__error form__error_type_search'>{ validateSearch(values.search).message }</span> }
+        { <span className='form__error form__error_type_search'>{ location.pathname === '/movies' && validateSearch(values.search).message }</span> }
         <button 
-          className={ `search__submit ${ isValid ? 'search__submit_type_hover' : 'search__submit_disabled' }` } 
+          className={ `search__submit ${ (location.pathname === '/movies' && isValid) ? 'search__submit_type_hover' : 'search__submit_disabled' }` } 
           type='submit' 
           // disabled={ !isValid }
         >
