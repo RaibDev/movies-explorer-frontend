@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import './SavedMovies.css';
 import SearchForm from '../SearchForm/SearchForm';
@@ -6,6 +7,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import { filterShorts, filterMovies } from '../../utils/filtration';
 
 const SavedMovies = ({ savedMovies, onDelete }) => {
+  let location = useLocation();
 
   const [shortMovies, setShortMovies] = useState(false);
     const [err, setErr] = useState(false);
@@ -26,6 +28,8 @@ const SavedMovies = ({ savedMovies, onDelete }) => {
     }
 
     const handleSubmit = (value) => {
+      localStorage.setItem(`saveMovieSearch`, value);
+
         const movies = filterMovies(savedMovies, value, shortMovies);
         if (movies.length === 0) {
             setErr(true);
@@ -44,8 +48,15 @@ const SavedMovies = ({ savedMovies, onDelete }) => {
         sortedMovies.length !== 0 ? setErr(false) : setErr(true);
     }, [shortMovies, sortedMovies]);
 
+    // useEffect(() => {
+    //   localStorage.removeItem('saveMovieSearch');
+    // }, [location.pathname]);
+
     useEffect(() => {
       setSortedMovies(savedMovies);
+      if(localStorage.getItem('saveMovieSearch')) {
+        handleSubmit(localStorage.getItem('saveMovieSearch'));
+      }
     }, [savedMovies]);
 
   return (

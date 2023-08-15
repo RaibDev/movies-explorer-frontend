@@ -31,6 +31,11 @@ const SearchForm = ({ onSubmit, showShortFilms, shortMovies }) => {
           const searchValues = localStorage.getItem(`movieSearch`);
           values.search = searchValues;
       }
+      if (location.pathname === '/saved-movies' && localStorage.getItem(`saveMovieSearch`)) {
+        const searchSavedValues = localStorage.getItem(`saveMovieSearch`);
+        values.search = searchSavedValues;
+    }
+
   }, [location.pathname]);
 
   return (

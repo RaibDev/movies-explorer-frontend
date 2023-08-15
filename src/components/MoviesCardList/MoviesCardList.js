@@ -23,14 +23,18 @@ const MoviesCardList = ({
   const resize = useResize();
 
   useEffect(() => {
-    if (resize > desktop.width) {
-      setCardSetting(desktop.cards);
-    } else if (resize <= desktop.width && resize > mobile.width) {
-      setCardSetting(tablet.cards);
+    if(location.pathname === '/movies') {
+      if (resize > desktop.width) {
+        setCardSetting(desktop.cards);
+      } else if (resize <= desktop.width && resize > mobile.width) {
+        setCardSetting(tablet.cards);
+      } else {
+        setCardSetting(mobile.cards);
+      }
+      return () => setIsCount(false);
     } else {
-      setCardSetting(mobile.cards);
+      setCardSetting({ total: savedMovies.length, more: 0 });
     }
-    return () => setIsCount(false);
   }, [resize, desktop, tablet, mobile]);
 
   useEffect(() => {
