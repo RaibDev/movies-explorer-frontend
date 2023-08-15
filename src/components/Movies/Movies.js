@@ -20,8 +20,12 @@ const Movies = ({
   const [initialMovies, setInitialMovies] = useState([]);
   const [sortedMovies, setSortedMovies] = useState([]);
   const [isAllMovies, setIsAllMovies] = useState([]);
-  const [shortMovies, setShortMovies] = useState(false);
+  // const [shortMovies, setShortMovies] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [shortMovies, setShortMovies] = useState(
+    JSON.parse(localStorage.getItem('shortMovies')) || false
+  );
 
   const handleSetSortedMovies = (movies, userQuery, shortMoviesCheckbox) => {
     const moviesList = filterMovies(movies, userQuery, false);
@@ -122,10 +126,40 @@ const Movies = ({
   //   }
   // }, [navigate]);
 
+  // const handleRenavigateSubmit = (value) => {
+  //   localStorage.setItem(`movieSearch`, value);
+
+  //     const movies = filterMovies(savedMovies, value, shortMovies);
+  //     if (movies.length === 0) {
+  //         setErr(true);
+  //     } else {
+  //         setErr(false);
+  //         setSortedMovies(movies);
+  //     }
+  // }
+
+  // useEffect(() => {
+  //   setSortedMovies(sortedMovies);
+  //   handle
+  //   // if(localStorage.getItem('movieSearch')) {
+  //   //   handleRenavigateSubmit(localStorage.getItem('movieSearch'));
+  //   // }
+  //   // handleSetSortedMovies(isAllMovies, inputValue, shortMovies);
+  //   // setSortedMovies(filterShorts(sortedMovies));
+  // }, [location.pathname]);
+
   useEffect(() => {
-    // setSortedMovies(sortedMovies)
-    // handleSetSortedMovies(isAllMovies, inputValue, shortMovies);
-    setSortedMovies(filterShorts(sortedMovies));
+    if (localStorage.getItem(`movies`) && JSON.parse(localStorage.getItem(`movies`)).length > 0) {
+          const films = JSON.parse(
+            localStorage.getItem(`movies`)
+          );
+          setInitialMovies(films);
+          if (localStorage.getItem(`shortMovies`) === 'true') {
+            setSortedMovies(filterShorts(films));
+          } else {
+            setSortedMovies(films);
+          }
+        }
   }, [location.pathname]);
 
   return (
@@ -134,9 +168,10 @@ const Movies = ({
         onSubmit={ handleSubmit }
         showShortFilms={ showShortFilms }
         shortMovies={ shortMovies }
+        // shortMovies={ shortsToggle || shortMovies }
       />
       { isLoading && <Preloader /> }
-      { !err && sortedMovies.length ? 
+      { /*!err &&*/ sortedMovies.length && localStorage.getItem(`movies`) ? 
         (<MoviesCardList 
           isSaved={ false }
           movies={ sortedMovies } 
