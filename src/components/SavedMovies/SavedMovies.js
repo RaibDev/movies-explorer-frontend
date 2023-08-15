@@ -45,7 +45,7 @@ const SavedMovies = ({ savedMovies, onDelete }) => {
     }, [shortMovies, sortedMovies]);
 
     useEffect(() => {
-        setSortedMovies(savedMovies);
+      setSortedMovies(savedMovies);
     }, [savedMovies]);
 
   return (

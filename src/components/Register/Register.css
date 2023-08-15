@@ -63,6 +63,18 @@
   color: #FF4062;
 }
 
+.form__submit:disabled{
+  background: #b4b4b4;
+  border: none;
+  height: 45px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.21;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
 .form__submit {
   background-color: #000;
   height: 45px;

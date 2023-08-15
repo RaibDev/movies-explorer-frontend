@@ -75,7 +75,7 @@ const Register = ({ loggedIn, onRegister, apiErrors }) => {
               : apiErrors.register.errorText}
           </span>
         <button 
-          className={ `form__submit form__submit_type_register ${ isValid ? 'form__submit_type_hover' : 'form__submit_disabled' }` }
+          className={ `form__submit form__submit_type_register ${ !(validateName(values.name).invalid || validateEmail(values.email).invalid) && isValid ? 'form__submit_type_hover' : 'form__submit_disabled' }` }
           type='submit' 
           disabled={ !isValid || validateName(values.name).invalid || validateEmail(values.email).invalid }
           >

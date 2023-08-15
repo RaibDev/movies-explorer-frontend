@@ -112,7 +112,7 @@ const Movies = ({
   //       .catch((err) => console.log(err)
   //       )
   //       .finally(() => setIsLoading(false));
-  //   }
+  // //   }
     
   //   if (localStorage.getItem(`shortMovies`) === 'true') {
   //     setShortMovies(true);
@@ -120,6 +120,12 @@ const Movies = ({
   //     setShortMovies(false);
   //   }
   // }, [navigate]);
+
+  useEffect(() => {
+    // setSortedMovies(sortedMovies)
+    // handleSetSortedMovies(isAllMovies, inputValue, shortMovies);
+    setSortedMovies(filterShorts(sortedMovies));
+  }, [navigate]);
 
   return (
     <main>
